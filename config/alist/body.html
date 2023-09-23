@@ -1,0 +1,35 @@
+<style>
+  .home-button {
+    background-color: #3880ff;
+    opacity: 0.8;
+    color: white;
+    font-size: 30px;
+    border: none;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+</style>
+
+<button class="home-button" onclick="redirectToHome()">🏠</button>
+<script>
+  const tid = setInterval(() => {
+    const logo = document.querySelector(
+      "#root > div.header.hope-center.hope-c-jKOUQW.hope-c-PJLV.hope-c-PJLV-ikgiLXI-css > div > div > div.header-left.hope-stack.hope-c-dhzjXW.hope-c-PJLV.hope-c-PJLV-ihKMwLA-css > img"
+    );
+    if (logo) {
+      clearInterval(tid);
+      logo.addEventListener("click", redirectToHome);
+    }
+  }, 1000);
+  function redirectToHome() {
+    const location = window.location;
+    console.log(location.port);
+    if (location.port == 5244) {
+      window.location.href = `${location.protocol}//${location.hostname}/welcome`;
+    } else {
+      window.location.href = "/welcome";
+    }
+  }
+</script>

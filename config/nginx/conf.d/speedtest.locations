@@ -1,0 +1,32 @@
+location /speedtest/ {
+    proxy_pass http://127.0.0.1:3300/;
+    proxy_cache off;
+    proxy_cache_bypass $http_cache_control;
+    # 隐藏 URL
+    rewrite ^/speedtest(/.*)$ $1 break;
+}
+location /download {
+    return 302 http://$host:3300$request_uri;
+    # http://10.88.129.128/download?count=64
+    # http://speedtest.zju.edu.cn/garbage.php?r=0.1299677667001542&ckSize=
+    # http://10.202.41.81/garbage.php?r=0.1299677667001542&ckSize=
+    # if ($arg_count) {
+    #     return 302 http://speedtest.zju.edu.cn/garbage.php?r=0.1299677667001542&ckSize=$arg_count;
+    # }
+    # return 302 http://speedtest.zju.edu.cn/garbage.php?r=0.1299677667001542;
+    # return 302 http://speedtest.zju.edu.cn/100M;
+}
+location /upload {
+    # return 302 http://$host:3300$request_uri;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_method POST;
+    proxy_set_header X-Forwarded-Method POST;
+    proxy_set_header Content-Length $content_length;
+    proxy_pass http://127.0.0.1:3300/; # 重定向到3300端口 proxy_pass http://127.0.0.1:3300/; # 重定向到3300端口
+}
+location /ip {
+    default_type text/plain;
+    return 200 $remote_addr;
+}
