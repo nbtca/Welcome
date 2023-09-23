@@ -7,6 +7,10 @@
 > http://10.88.135.0/
 > ```
 
+## 源码说明
+- [src目录](src/)为欢迎页面的源码目录
+  - 使用 [vue3](https://vuejs.org/) + [ionic7](https://ionicframework.com/) 开发
+- 具体的文件服务见下方说明
 
 ## 架构/配置
 - 系统使用 [iStoreOS - OpenWrt](https://www.istoreos.com/)
