@@ -33,7 +33,7 @@
       <home-card-item
         :component="FilesPage"
         title="文件"
-        subtitle="文件中心"
+        subtitle="Files Center"
         content="在此下载和备份文件"
       />
       <home-card-item
@@ -41,6 +41,12 @@
         title="内网测速"
         subtitle="SpeedTest"
         content="测速当前到本服务器的内网速度"
+      />
+      <home-card-item
+        :component="AriaNGPage"
+        title="离线下载"
+        subtitle="AriaNG"
+        content="使用aria的离线下载功能"
       />
       <home-card-item
         :component="MirrorPage"
@@ -51,7 +57,7 @@
       <home-card-item
         :component="ManagementPage"
         title="管理"
-        subtitle="后台"
+        subtitle="Management"
         content="(:"
       />
     </ion-row>
@@ -66,6 +72,7 @@ import FilesPage from "@/views/FilesPage.vue";
 import SpeedTestPage from "@/views/SpeedTestPage.vue";
 import MirrorPage from "@/views/MirrorPage.vue";
 import ManagementPage from "@/views/ManagementPage.vue";
+import AriaNGPage from "@/views/AriaNGPage.vue";
 //https://mirrors.zju.edu.cn/api/mirrors
 const myip = ref(undefined);
 onMounted(async () => {
