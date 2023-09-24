@@ -4,7 +4,7 @@
       <ion-buttons slot="start">
         <ion-back-button></ion-back-button>
       </ion-buttons>
-      <ion-title>文件中心</ion-title>
+      <ion-title>在线文件中心</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>

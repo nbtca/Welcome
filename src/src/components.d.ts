@@ -13,6 +13,7 @@ declare module 'vue' {
     HomeCardItem: typeof import('./components/HomeCardItem.vue')['default']
     IconFolder: typeof import('./components/alist/icons/icon-folder.vue')['default']
     IconIso: typeof import('./components/alist/icons/icon-iso.vue')['default']
+    InlineCopy: typeof import('./components/InlineCopy.vue')['default']
     IonBackButton: typeof import('@ionic/vue')['IonBackButton']
     IonButton: typeof import('@ionic/vue')['IonButton']
     IonButtons: typeof import('@ionic/vue')['IonButtons']
@@ -25,6 +26,7 @@ declare module 'vue' {
     IonContent: typeof import('@ionic/vue')['IonContent']
     IonHeader: typeof import('@ionic/vue')['IonHeader']
     IonIcon: typeof import('@ionic/vue')['IonIcon']
+    IonInput: typeof import('@ionic/vue')['IonInput']
     IonItem: typeof import('@ionic/vue')['IonItem']
     IonLabel: typeof import('@ionic/vue')['IonLabel']
     IonList: typeof import('@ionic/vue')['IonList']
@@ -38,5 +40,6 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     SpeedTestContainer: typeof import('./components/speedtest/SpeedTestContainer.vue')['default']
     SvgPathContainer: typeof import('./components/alist/icons/svg-path-container.vue')['default']
+    UniversalFileItem: typeof import('./components/UniversalFileItem.vue')['default']
   }
 }

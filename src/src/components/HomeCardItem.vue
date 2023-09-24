@@ -1,5 +1,5 @@
 <template>
-  <ion-col style="min-width: 300px">
+  <ion-col>
     <ion-card>
       <ion-card-header>
         <ion-card-title>{{ title }}</ion-card-title>
@@ -18,6 +18,9 @@
   </ion-col>
 </template>
 <style scoped>
+ion-col {
+  min-width: min(400px, 100%);
+}
 .forward-button {
   font-size: large;
   display: flex;

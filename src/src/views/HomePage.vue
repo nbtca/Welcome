@@ -32,21 +32,27 @@
     <ion-row>
       <home-card-item
         :component="FilesPage"
-        title="文件"
+        title="在线文件中心"
         subtitle="Files Center"
-        content="在此下载和备份文件"
+        content="在网页上直接浏览和管理文件"
       />
       <home-card-item
-        :component="SpeedTestPage"
-        title="内网测速"
-        subtitle="SpeedTest"
-        content="测速当前到本服务器的内网速度"
+        :component="UniversalFilesPage"
+        title="通用文件共享"
+        subtitle="Files Sharing"
+        content="使用不同协议管理文件"
       />
       <home-card-item
         :component="AriaNGPage"
         title="离线下载"
         subtitle="AriaNG"
         content="使用aria的离线下载功能"
+      />
+      <home-card-item
+        :component="SpeedTestPage"
+        title="内网测速"
+        subtitle="SpeedTest"
+        content="测速当前到本服务器的内网速度"
       />
       <home-card-item
         :component="MirrorPage"
@@ -69,6 +75,7 @@ import { onMounted, ref } from "vue";
 import axios from "axios";
 const isCampus = ref(false);
 import FilesPage from "@/views/FilesPage.vue";
+import UniversalFilesPage from "@/views/UniversalFilesPage.vue";
 import SpeedTestPage from "@/views/SpeedTestPage.vue";
 import MirrorPage from "@/views/MirrorPage.vue";
 import ManagementPage from "@/views/ManagementPage.vue";
