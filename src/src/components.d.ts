@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AutoNavLink: typeof import('./components/AutoNavLink.vue')['default']
     CampusInternalNetwork: typeof import('./components/CampusInternalNetwork.vue')['default']
     FileIcon: typeof import('./components/alist/FileIcon.vue')['default']
     FileList: typeof import('./components/alist/FileList.vue')['default']

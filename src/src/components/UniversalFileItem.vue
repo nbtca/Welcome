@@ -23,7 +23,7 @@
               <ion-button @click="invokeCopy">
                 <ion-icon :icon="copy" size="large"></ion-icon>
               </ion-button>
-              <ion-nav-link
+              <auto-nav-link
                 v-if="component"
                 :component="component"
                 :component-props="props"
@@ -31,7 +31,7 @@
                 <ion-button>
                   <ion-icon :icon="info" size="large"></ion-icon>
                 </ion-button>
-              </ion-nav-link>
+              </auto-nav-link>
             </ion-buttons>
           </ion-item>
         </div>
@@ -41,7 +41,7 @@
 </template>
 <style scoped>
 ion-card {
-  min-width: min(500px, calc(100% - 40px));
+  min-width: min(350px, calc(100% - 40px));
 }
 </style>
 <script lang="ts" setup>
