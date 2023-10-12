@@ -19,13 +19,13 @@
         title="WebDav"
         subtitle="支持上传和下载"
         :descriptions="['账户名: web', '密码: 0']"
-        :address="`http://${host}/dav`"
+        :address="`https://${host}/dav`"
         :component="WebDav"
       />
       <universal-file-item
         title="WebDav[Readonly]"
         subtitle="仅支持下载"
-        :address="`http://${host}/webdav`"
+        :address="`https://${host}/webdav`"
         :component="WebDav"
       />
       <universal-file-item

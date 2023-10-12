@@ -84,9 +84,11 @@ import AriaNGPage from "@/views/AriaNGPage.vue";
 const myip = ref(undefined);
 onMounted(async () => {
   try {
+    const protocol = window.location.protocol;
     isCampus.value =
       1 ==
-      (await axios.get("http://mirrors.zju.edu.cn/api/is_campus_network")).data;
+      (await axios.get(protocol + "//mirrors.zju.edu.cn/api/is_campus_network"))
+        .data;
   } catch (error) {
     console.error("is_campus_network", error);
   }

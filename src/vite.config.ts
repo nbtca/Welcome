@@ -10,7 +10,7 @@ import Components from "unplugin-vue-components/vite";
 export default defineConfig({
   server: {
     proxy: {
-      "^/[^(welcome)].*": "http://10.88.135.0/",
+      "^/[^(welcome)].*": "https://cloud.nbtca.space/",
     },
     port: 4000,
   },

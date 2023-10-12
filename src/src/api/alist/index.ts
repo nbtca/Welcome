@@ -56,5 +56,21 @@ export interface FileResult {
   data: FileItemData | null;
 }
 export async function listFiles() {
-  return (await axios.get("/api/fs/list")).data as FileResult;
+  return (
+    await axios.post(
+      "/api/fs/list",
+      {
+        path: "/",
+        password: "",
+        page: 1,
+        per_page: 0,
+        refresh: false,
+      },
+      {
+        headers: {
+          Authorization: "",
+        },
+      }
+    )
+  ).data as FileResult;
 }
