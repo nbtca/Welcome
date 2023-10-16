@@ -10,12 +10,12 @@
   <ion-content>
     <div style="margin: 20px">
       <h1>简介</h1>
-      WebDAV（Web-based Distributed Authoring and
-      Versioning）是基于HTTP扩展协议的文件协作和文件管理协议。它允许用户通过Web服务器来编辑、管理和共享网络上的文件和资源。
-      <h1>安全性</h1>
-      使用域名访问并使用https协议，安全性高。
+      FTP，全名为文件传输协议（File Transfer
+      Protocol）。FTP最早是在1971年由Abhay
+      Bhushan开发的，是互联网上最早的标准协议之一，至今仍然广泛使用。不过不太氨醛。
+      <br />
       <h1>可用性</h1>
-      测试可用，Windows文件资源管理器直接使用存在问题，使用客户端即可，测试WinScp可用。
+      目前测试没什么问题，Windows文件资源管理器可用。
       <br />
       <h1>使用方法</h1>
       <li>使用<inline-copy :data="address" />访问</li>
