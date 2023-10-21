@@ -1,10 +1,9 @@
 # Welcome
 > ### 内网服务欢迎页面
 > 
-> [主地址](http://10.88.135.0/)
-> [备用](http://10.88.135.1/)
+> [主地址(内网)](https://cloud.nbtca.space/)
 > ```
-> http://10.88.135.0/
+> https://cloud.nbtca.space/
 > ```
 
 ## 源码说明
