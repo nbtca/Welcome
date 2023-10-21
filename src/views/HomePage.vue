@@ -135,7 +135,9 @@ import AriaNGPage from "@/views/AriaNGPage.vue";
 const myip = ref(undefined);
 onMounted(async () => {
   try {
+    //传输协议 http or https
     const protocol = window.location.protocol;
+    //是否校园网访问
     isCampus.value =
       1 ==
       (await axios.get(protocol + "//mirrors.zju.edu.cn/api/is_campus_network"))
