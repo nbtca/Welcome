@@ -4,8 +4,9 @@
       :root="Home"
       @ionNavDidChange="(e) => ionNavDidChange(e.target)"
       @ionNavWillChange="(e) => ionNavWillChange(e)"
-    ></ion-nav
-  ></ion-page>
+    >
+    </ion-nav>
+  </ion-page>
 </template>
 <style scoped></style>
 <script lang="ts" setup>
