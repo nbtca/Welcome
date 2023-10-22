@@ -66,59 +66,20 @@
         subtitle="Management"
         content="(:"
       />
+      <home-card-item
+        :component="CalenderPage"
+        title="日历"
+        subtitle="Calender"
+        content="xxx活动"
+      />
     </ion-row>
-    <ion-card>
-      <ion-card-header> 下水道负载 </ion-card-header>
-      <ion-card-title class="server-status-title">
-        <div>服务器状态</div>
-      </ion-card-title>
-      <ion-card-content>
-        <ion-row>
-          <ion-col>
-            <div class="server-status-item">
-              <ion-label>磁盘占用</ion-label>
-              <ion-label color="secondary">xx%</ion-label>
-            </div>
-          </ion-col>
-          <ion-col>
-            <div class="server-status-item">
-              <ion-label>CPU占用</ion-label>
-              <ion-label color="secondary">xx%</ion-label>
-            </div>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <div class="server-status-item">
-              <ion-label>网络上行</ion-label>
-              <ion-label color="secondary">xx%</ion-label>
-            </div>
-          </ion-col>
-          <ion-col>
-            <div class="server-status-item">
-              <ion-label>网络下行</ion-label>
-              <ion-label color="secondary">xx%</ion-label>
-            </div>
-          </ion-col>
-        </ion-row>
-      </ion-card-content>
-    </ion-card>
+    <recent-activity class="card" />
+    <server-status class="card" />
   </ion-content>
 </template>
 <style scoped>
-.server-status-title {
-  display: flex;
-  justify-content: center;
-}
-.server-status-title div {
-  font-size: 1.5rem;
-}
-.server-status-item {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  font-size: 1.5rem;
+.card {
+  margin: 20px;
 }
 </style>
 <script setup lang="ts">
@@ -131,6 +92,7 @@ import SpeedTestPage from "@/views/SpeedTestPage.vue";
 import MirrorPage from "@/views/MirrorPage.vue";
 import ManagementPage from "@/views/ManagementPage.vue";
 import AriaNGPage from "@/views/AriaNGPage.vue";
+import CalenderPage from "@/views/CalenderPage.vue";
 //https://mirrors.zju.edu.cn/api/mirrors
 const myip = ref(undefined);
 onMounted(async () => {
