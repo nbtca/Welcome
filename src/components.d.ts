@@ -25,6 +25,7 @@ declare module 'vue' {
     IonCardTitle: typeof import('@ionic/vue')['IonCardTitle']
     IonCol: typeof import('@ionic/vue')['IonCol']
     IonContent: typeof import('@ionic/vue')['IonContent']
+    IonDatetime: typeof import('@ionic/vue')['IonDatetime']
     IonHeader: typeof import('@ionic/vue')['IonHeader']
     IonIcon: typeof import('@ionic/vue')['IonIcon']
     IonInput: typeof import('@ionic/vue')['IonInput']
