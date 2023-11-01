@@ -1,7 +1,7 @@
 import router from ".";
 export const locationPath = "location";
 export function GetPageNameFromComponment(component: any) {
-  const name = component.__name.toLowerCase();
+  const name = component.__name?.toLowerCase() ?? "";
   if (name === "homepage") return undefined;
   //trimend 'page'
   if (name.endsWith("page")) return name.substring(0, name.length - 4);

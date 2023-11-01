@@ -9,7 +9,10 @@
         <ion-col>
           <div class="server-status-item">
             <ion-label>磁盘占用</ion-label>
-            <ion-label color="secondary">xx%</ion-label>
+            <ion-label v-for="disk in data" color="secondary">
+              {{ disk.format }} :
+              {{ (disk.available_free_space / 1024 / 1024 / 1024).toFixed(1) }}
+            </ion-label>
           </div>
         </ion-col>
         <ion-col>
@@ -53,5 +56,10 @@
 }
 </style>
 <script lang="ts" setup>
-const props = defineProps<{}>();
+import { GetDisk, type DiskInfo } from "@/api/panel";
+const data = ref<DiskInfo[]>();
+onMounted(async () => {
+  data.value = await GetDisk();
+});
+// const props = defineProps<{}>();
 </script>

@@ -3,14 +3,14 @@ const api = new Axios({
   baseURL: "/panel",
 });
 export interface DiskInfo {
-  available_free_space: number;
-  format: string;
-  label_name: string;
-  total_free_space: number;
-  total_size: number;
+  available_free_space: number; //空闲空间
+  format: string; //格式
+  label_name: string; //卷标
+  total_free_space: number; //总空闲空间
+  total_size: number; //总大小
 }
 export async function GetDisk() {
-  return (await api.get("/disk")) as DiskInfo[];
+  return JSON.parse((await api.get("/disk")).data) as DiskInfo[];
 }
 export interface MemoryInfo {
   avail_page_file: number;
