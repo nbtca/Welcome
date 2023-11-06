@@ -67,8 +67,8 @@ const props = defineProps<{
   title: string;
   url: string;
 }>();
-const rootFrame = ref<HTMLIFrameElement>();
-const src = props.url;
+const rootFrame = ref<HTMLIFrameElement>(); //取得上方 ref="rootFrame" 的HTML元素
+const src = props.url; //传入的访问地址
 const loaded = ref(false);
 onMounted(() => {
   setTimeout(() => {

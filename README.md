@@ -10,8 +10,9 @@
 
 ## 源码说明
 
-- [src 目录](src/)为欢迎页面的源码目录
+- 根目录为欢迎页面的源码目录
   - 使用 [vue3](https://vuejs.org/) + [ionic7](https://ionicframework.com/) 开发
+  - 使用 TypeScript
 - 具体的文件服务见下方说明
 
 ## 参与指南（对于社内成员）
