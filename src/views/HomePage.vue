@@ -42,12 +42,12 @@
         subtitle="Files Sharing"
         content="使用不同协议管理文件"
       />
-      <home-card-item
+      <!-- <home-card-item
         :component="AriaNGPage"
         title="离线下载"
         subtitle="AriaNG"
         content="使用aria的离线下载功能"
-      />
+      /> -->
       <home-card-item
         :component="SpeedTestPage"
         title="内网测速"
@@ -68,7 +68,7 @@
       />
       <home-card-item
         :component="CalenderPage"
-        title="日历"
+        title="计协日历"
         subtitle="Calender"
         content="xxx活动"
       />
