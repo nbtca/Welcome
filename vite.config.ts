@@ -26,7 +26,7 @@ export default defineConfig({
       dts: "src/auto-imports.d.ts",
     }),
   ],
-  base: "/welcome",
+  // base: "/welcome",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

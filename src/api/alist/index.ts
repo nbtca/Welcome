@@ -32,7 +32,9 @@
  */
 
 import axios from "axios";
-
+const api = axios.create({
+  baseURL: "/files",
+});
 export interface FileItemData {
   content: FileItem[];
   total: number;
@@ -57,7 +59,7 @@ export interface FileResult {
 }
 export async function listFiles() {
   return (
-    await axios.post(
+    await api.post(
       "/api/fs/list",
       {
         path: "/",

@@ -19,7 +19,7 @@
       <universal-file-item
         title="GoWebDav"
         subtitle="支持下载"
-        :descriptions="['支持网页下载', '上传需要客户端']"
+        :descriptions="['支持网页下载']"
         :address="`https://${host}/webdav`"
         :component="WebDav"
       />

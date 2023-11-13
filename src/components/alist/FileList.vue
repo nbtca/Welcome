@@ -1,6 +1,6 @@
 <template>
   <ion-list v-if="info.data">
-    <ion-item :href="file.name" v-for="file in info.data.content">
+    <ion-item :href="'/files/' + file.name" v-for="file in info.data.content">
       <div slot="start">
         <file-icon :file="file"> </file-icon>
         {{ file.name }}
