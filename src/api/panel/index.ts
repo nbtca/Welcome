@@ -115,3 +115,9 @@ export interface CPUInfo {
 export async function GetCPU() {
   return (await api.get("/cpu")) as CPUInfo[];
 }
+/**
+ * 获取日历
+ */
+export async function GetCalendar() {
+  return (await api.get("/ical")).data as string;
+}
