@@ -212,7 +212,7 @@ import {
 //最大网络速度
 const maxNetworkSpeed = 1000; //Mbps
 //刷新间隔
-const refreshInterval = 1000; //ms
+const refreshInterval = 2500; //ms
 const dataDisk = ref<DiskInfo[]>();
 const dataCPU = ref<CPUInfo[]>();
 const dataMemory = ref<MemoryInfo>({
