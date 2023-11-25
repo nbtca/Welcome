@@ -39,6 +39,7 @@
                       cpu.brand
                         .replace("Intel(R) ", "")
                         .replace("with Radeon Vega Graphics", "")
+                        .replace(/CPU @.*/, "")
                     }}
                   </ion-label>
                   <ion-progress-bar
