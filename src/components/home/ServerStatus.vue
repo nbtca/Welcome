@@ -17,7 +17,9 @@
                       {{ disk.label_name }}
                     </ion-label>
                     <div>
-                      <span> {{ formatSize(disk.available_free_space) }} </span>
+                      <span>
+                        ~ {{ formatSize(disk.available_free_space) }}
+                      </span>
                     </div>
                   </div>
                   <ion-progress-bar class="progress" :value="calcUsage(disk)">
@@ -27,21 +29,23 @@
             </div>
           </div>
         </ion-col>
-
         <ion-col>
           <div class="server-status-item">
             <ion-label>CPU占用</ion-label>
             <div class="usage-content-wrapper">
               <div class="usage-content">
                 <div v-for="cpu in dataCPU" class="usage-indicator">
-                  <ion-label class="font" color="secondary">
-                    {{
-                      cpu.brand
-                        .replace("Intel(R) ", "")
-                        .replace("with Radeon Vega Graphics", "")
-                        .replace(/CPU @.*/, "")
-                    }}
-                  </ion-label>
+                  <div class="font">
+                    <ion-label color="secondary">
+                      {{
+                        cpu.brand
+                          .replace("Intel(R) ", "")
+                          .replace("with Radeon Vega Graphics", "")
+                          .replace(/CPU @.*/, "")
+                      }}
+                    </ion-label>
+                    <span> {{ cpu.cpu_usage.toFixed(0) }}% </span>
+                  </div>
                   <ion-progress-bar
                     class="progress"
                     :value="cpu.cpu_usage / 100"
@@ -59,7 +63,7 @@
             <ion-label>网络上行</ion-label>
             <div class="usage-content">
               <ion-label color="secondary">
-                {{ formatSize(dataNetwork.sent_speed) }}/s
+                {{ formatSizeBps(dataNetwork.sent_speed) }}
               </ion-label>
 
               <ion-progress-bar
@@ -67,9 +71,7 @@
                 :value="calcNetworkOverload(dataNetwork.sent_speed)"
               >
               </ion-progress-bar>
-              <div class="font">
-                {{ formatSizeBps(dataNetwork.sent_speed) }}
-              </div>
+              <div class="font">{{ formatSize(dataNetwork.sent_speed) }}/s</div>
             </div>
           </div>
         </ion-col>
@@ -78,16 +80,14 @@
             <ion-label>网络下行</ion-label>
             <div class="usage-content">
               <ion-label color="secondary">
-                {{ formatSize(dataNetwork.recv_speed) }}/s
+                {{ formatSizeBps(dataNetwork.recv_speed) }}
               </ion-label>
               <ion-progress-bar
                 class="progress"
                 :value="calcNetworkOverload(dataNetwork.recv_speed)"
               >
               </ion-progress-bar>
-              <div class="font">
-                {{ formatSizeBps(dataNetwork.recv_speed) }}
-              </div>
+              <div class="font">{{ formatSize(dataNetwork.recv_speed) }}/s</div>
             </div>
           </div>
         </ion-col>
@@ -140,7 +140,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 180px;
+    height: 190px;
     .usage-content {
       width: 100%;
       display: flex;
@@ -209,7 +209,10 @@ import {
   type CPUInfo,
   type MemoryInfo,
 } from "@/api/panel";
+//最大网络速度
 const maxNetworkSpeed = 200; //Mbps
+//刷新间隔
+const refreshInterval = 1000; //ms
 const dataDisk = ref<DiskInfo[]>();
 const dataCPU = ref<CPUInfo[]>();
 const dataMemory = ref<MemoryInfo>({
@@ -265,7 +268,7 @@ async function timer() {
 onMounted(async () => {
   //组件挂载时
   init();
-  timerId = setInterval(timer, 1000); //开启定时器
+  timerId = setInterval(timer, refreshInterval); //开启定时器
 });
 onUnmounted(() => {
   //组件销毁时
