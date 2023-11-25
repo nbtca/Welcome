@@ -4,6 +4,15 @@ import { Axios } from "axios";
  */
 const api = new Axios({
   baseURL: "/panel",
+  responseType: "json",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  transformResponse: (data) => {
+    if (typeof data === "string") return JSON.parse(data);
+    return data;
+  },
+  timeout: 1000,
 });
 /**
  * 单个磁盘信息
@@ -31,7 +40,7 @@ export interface DiskInfo {
   total_size: number;
 }
 export async function GetDisk() {
-  return JSON.parse((await api.get("/disk")).data) as DiskInfo[];
+  return (await api.get("/disk")).data as DiskInfo[];
 }
 
 export interface MemoryInfo {
@@ -65,7 +74,7 @@ export interface MemoryInfo {
   total_virtual: number;
 }
 export async function GetMemory() {
-  return (await api.get("/memory")) as MemoryInfo;
+  return (await api.get("/memory")).data as MemoryInfo;
 }
 /**
  * 单个网络适配器信息
@@ -85,7 +94,7 @@ export interface NetworkInfo {
   total_transmitted: number;
 }
 export async function GetNetwork() {
-  return (await api.get("/network")) as NetworkInfo[];
+  return (await api.get("/network")).data as NetworkInfo[];
 }
 /**
  * 单个CPU的占用
@@ -113,7 +122,7 @@ export interface CPUInfo {
   vendor_id: string;
 }
 export async function GetCPU() {
-  return (await api.get("/cpu")) as CPUInfo[];
+  return (await api.get("/cpu")).data as CPUInfo[];
 }
 /**
  * 获取日历
