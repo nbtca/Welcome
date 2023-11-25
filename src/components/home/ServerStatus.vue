@@ -179,6 +179,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    max-width: 300px;
     .font {
       display: flex;
       flex-direction: column;
