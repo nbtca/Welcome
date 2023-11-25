@@ -210,7 +210,7 @@ import {
   type MemoryInfo,
 } from "@/api/panel";
 //最大网络速度
-const maxNetworkSpeed = 200; //Mbps
+const maxNetworkSpeed = 1000; //Mbps
 //刷新间隔
 const refreshInterval = 1000; //ms
 const dataDisk = ref<DiskInfo[]>();
