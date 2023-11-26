@@ -1,12 +1,7 @@
 <template>
   <page-base title="日历">
-    <ion-datetime
-      class="date-picker"
-      v-on:ion-change="onChange($event)"
-      :day-values="day_list"
-      presentation="date"
-      :value="date"
-    ></ion-datetime>
+    <ion-datetime class="date-picker" v-on:ion-change="onChange($event)" :day-values="day_list" presentation="date"
+      :value="date"></ion-datetime>
     <div class="content">
       <p>当前选择日期：{{ date }}</p>
       <p>当日事件:</p>
@@ -18,15 +13,10 @@
         </li>
       </ol>
       <div>
-        <n-config-provider :theme="darkTheme">
+        <n-config-provider :theme="theme">
           <n-timeline>
-            <n-timeline-item
-              :color="event.type"
-              :title="event.summary"
-              :content="event.description"
-              :time="event.date.toLocaleString()"
-              v-for="event in event_list"
-            >
+            <n-timeline-item :color="event.type" :title="event.summary" :content="event.description"
+              :time="event.date.toLocaleString()" v-for="event in event_list">
             </n-timeline-item>
           </n-timeline>
         </n-config-provider>
@@ -40,6 +30,7 @@
   border-radius: 10px;
   margin-top: 10px;
 }
+
 .content {
   margin: auto;
   width: 90%;
@@ -49,9 +40,12 @@
 import { IonDatetime } from "@ionic/vue";
 import { GetCalendar } from "@/api/panel";
 import PageBase from "./Modules/PageBase.vue";
-import { NConfigProvider, darkTheme, NTimeline, NTimelineItem } from "naive-ui";
+import { NConfigProvider, darkTheme, NTimeline, NTimelineItem,useOsTheme } from "naive-ui";
 import ICAL from "ical";
 import moment from "moment";
+
+const osThemeRef = useOsTheme()
+var theme = computed(() => (osThemeRef.value === 'dark' ? darkTheme : null))
 
 enum Event_type {
   Birthday = "#ff3b30",
@@ -81,7 +75,7 @@ const compareEvent = (a: Event, b: Event) => {
   return 0;
 };
 
-const date = ref<string>(moment("2023-10-30").format("YYYY-MM-DD"));
+const date = ref<string>(moment().format("YYYY-MM-DD"));
 
 const getDayEventList = () => {
   day_event_list.value = [];
