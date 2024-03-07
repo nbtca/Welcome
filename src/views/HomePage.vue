@@ -36,19 +36,19 @@
         subtitle="Files Center"
         content="在网页上直接浏览和管理文件"
       />
-      <home-card-item
+      <!-- <home-card-item
         :component="UniversalFilesPage"
         title="通用文件共享"
         subtitle="Files Sharing"
         content="使用不同协议管理文件"
-      />
+      /> -->
       <!-- <home-card-item
         :component="AriaNGPage"
         title="离线下载"
         subtitle="AriaNG"
         content="使用aria的离线下载功能"
       /> -->
-      <home-card-item
+      <!-- <home-card-item
         :component="SpeedTestPage"
         title="内网测速"
         subtitle="SpeedTest"
@@ -71,10 +71,15 @@
         title="计协日历"
         subtitle="Calender"
         content="xxx活动"
-      />
+      /> -->
     </ion-row>
-    <recent-activity class="card" />
-    <server-status class="card" />
+    <!-- <recent-activity class="card" /> -->
+    <!-- <server-status class="card" /> -->
+    <div style="justify-content: flex-end; display: flex">
+      <ion-card>
+        <ion-card-content> 临时站点 当前仅允许下载 </ion-card-content>
+      </ion-card>
+    </div>
   </ion-content>
 </template>
 <style scoped>
